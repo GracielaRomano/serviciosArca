@@ -29,6 +29,7 @@ class BackOfficePanelProvider extends PanelProvider
             ->id('backOffice')
             ->path('backOffice')
             ->login()
+            ->registration()
             ->colors([
                 'primary' => Color::Amber,
             ])
@@ -39,8 +40,8 @@ class BackOfficePanelProvider extends PanelProvider
             ])
             ->discoverWidgets(in: app_path('Filament/BackOffice/Widgets'), for: 'App\\Filament\\BackOffice\\Widgets')
             ->widgets([
-                Widgets\AccountWidget::class,
-                Widgets\FilamentInfoWidget::class,
+                // Widgets\AccountWidget::class,
+                // Widgets\FilamentInfoWidget::class,
             ])
             ->middleware([
                 EncryptCookies::class,
