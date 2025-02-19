@@ -8,7 +8,7 @@ class Client extends Model
 {
     //
     use HasFactory;
-    protected $fillable = ['business_name', 'cuit', 'tenant_id'];
+    protected $fillable = ['business_name', 'cuit'];
 
     public function tenant()
     {

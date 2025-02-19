@@ -14,6 +14,13 @@ return new class extends Migration
         Schema::create('tenants', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('slug'); // 			
+            $table->string('address'); // Dirección de la empresa
+            $table->string('postal_code'); // Código postal de la empresa
+            $table->string('phone'); // Teléfono de la empresa
+            $table->string('email'); // Email de la empresa
+            $table->string('cuit')->unique(); // CUIT de la empresa
+            $table->foreignId('iva_position_id')->constrained('iva_positions'); // Relación con la tabla de posiciones IVA
             $table->timestamps();
         });
     }

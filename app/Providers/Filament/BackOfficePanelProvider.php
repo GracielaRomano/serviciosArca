@@ -20,24 +20,24 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
 use App\Filament\Pages\Tenancy\RegisterTeam;
 use App\Models\Tenant;
 
-class GestionPanelProvider extends PanelProvider
+class BackOfficePanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {
         return $panel
-            ->default()
-            ->id('gestion')
-            ->path('gestion')
+        
+            ->id('backOffice')
+            ->path('backOffice')
             ->login()
             ->colors([
                 'primary' => Color::Amber,
             ])
-            ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
-            ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
+            ->discoverResources(in: app_path('Filament/BackOffice/Resources'), for: 'App\\Filament\\BackOffice\\Resources')
+            ->discoverPages(in: app_path('Filament/BackOffice/Pages'), for: 'App\\Filament\\BackOffice\\Pages')
             ->pages([
                 Pages\Dashboard::class,
             ])
-            ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
+            ->discoverWidgets(in: app_path('Filament/BackOffice/Widgets'), for: 'App\\Filament\\BackOffice\\Widgets')
             ->widgets([
                 Widgets\AccountWidget::class,
                 Widgets\FilamentInfoWidget::class,
@@ -55,9 +55,7 @@ class GestionPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
-            ])
-            ->tenant(Tenant::class)
-            ->tenantRegistration(RegisterTeam::class)
-            ->registration();
+            ]);
+            
     }
 }

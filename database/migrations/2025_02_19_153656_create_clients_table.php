@@ -16,8 +16,6 @@ return new class extends Migration
             $table->foreignId('tenant_id')->constrained('tenants'); // Relación con la tabla de tenants
             $table->string('business_name'); // Nombre del cliente
             $table->string('cuit')->unique(); // CUIT del cliente
-            $table->unsignedBigInteger('tenant_id');
-            $table->foreign('tenant_id')->references('id')->on('tenants');
             $table->timestamps();
         });
     }
